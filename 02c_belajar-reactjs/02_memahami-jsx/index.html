@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CDN React JS -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- CDN Bootstrap 5 -->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Learn React</title>
+</head>
+<body>
+
+    <div class="row">
+        <div class="col-6 p-5">
+            
+            <!-- Contoh komponen dari Bootstrap -->
+            <!-- <button class="btn btn-primary">Primary Button</button>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Hallo Aku adalah card dari Bootstrap</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#" class="btn btn-primary">Go Some Where</a>
+                </div>
+            </div> -->
+
+            <div id="App"></div>
+
+        </div>
+    </div>
+    
+    <script type="text/babel">
+        // Membuat komponen tanpa JSX
+        class Button extends React.Component {
+            render() {
+                const btn = React.createElement('button', {class : 'btn btn-primary'}, 'Primary Button')
+                return btn
+            }
+        }
+
+        class Cards extends React.Component {
+            render() {
+                const link = React.createElement('a', {href: '#', class : 'btn btn-primary'}, 'Go Some Where')
+                const cardtext = React.createElement('p', {class : 'card-text'}, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.')
+                const cardtitle = React.createElement('h5', {class : 'card-title'}, 'Hallo Aku adalah card dari React')
+                const cardbody = React.createElement('div', {class : 'card-body'}, cardtitle, cardtext, link)
+                const card = React.createElement('div', {class : 'card'}, cardbody)
+                return card
+            }
+        }
+
+        // Membuat komponen dengan JSX
+        class ButtonJSX extends React.Component {
+            render() {
+                return <button className={"btn btn-primary"}>Primary Button</button>
+            }
+        }
+
+        class CardsJSX extends React.Component {
+            render() {
+                const card = (
+                    <div className={"card"}>
+                        <div className="card-body">
+                            <h5 className={"card-title"}>Hallo Aku adalah card dari JSX</h5>
+                            <p className={"card-text"}>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <a href={"#"} className={"btn btn-primary"}>Go Some Where</a>
+                        </div>
+                    </div>
+                )
+                return card
+            }
+        }
+        
+        ReactDOM.render(<CardsJSX/>, document.getElementById('App'));
+    </script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>
