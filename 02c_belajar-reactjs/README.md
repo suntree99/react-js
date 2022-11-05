@@ -151,7 +151,92 @@
     ```
     _Perhatikan penggunaan style, dan pemanggilan komponen di dalam komponen_
 
+## Event & Data Handling
+* Props / Properties
+    ```js
+    class ButtonJSX extends React.Component {
+        render() {
+            return <button className="btn btn-primary">{this.props.text}</button>
+        }
+    }
 
+    ReactDOM.render(<ButtonJSX text="Aku adalah Props 1"/>, document.getElementById('Container'));    </script>
+    ```
+    _Perenderan komponen disertai dengan atribut properti (text) yang akan di tangkap oleh {this.props.text} pada class_
+
+* Event & Data Handling pada Class Component
+    ```js
+    class ButtonJSX extends React.Component {
+        render() {
+            return <button className="btn btn-primary">{this.props.text}</button>
+        }
+    }
+
+    // Struktur Class Component
+    class CardsJSX extends React.Component {
+
+        // 1. Data Constructor
+        constructor() {
+            super();
+            this.state = {
+                Judul : "Aku adalah State",
+                Title : "Aku adalah sub title card"
+            }
+        }
+
+        // 2. Function
+        ubahJudul = () => {
+            this.setState({
+                Judul : "Aku berubah",
+            })
+        } 
+
+        // 3. Render Method
+        render() {
+            const card = (
+                <div className="card">
+                    <div className="card-body">
+                        <h5 className="card-title">{this.state.Judul}</h5>
+                        <p className="card-text">{this.state.Title}</p>
+                        <a href="#" className="btn btn-primary">Go Some Where</a>
+                        <ButtonJSX text="Aku adalah Props 1"/>
+                        <ButtonJSX text="Aku adalah Props 2"/>
+                        <button onClick={this.ubahJudul}>Ubah Button</button> 
+                    </div>
+                </div>
+            )
+            return card
+        }
+    }
+
+    ReactDOM.render(<CardsJSX/>, document.getElementById('Container'));
+    ```
+
+* Event & Data Handling pada Function Component
+    ```js
+    const ButtonA = () => {
+        return <button className="btn btn-primary">Button Arrow Fx</button>
+    }
+
+    const CardsA = () => {
+
+        const [state, setState] = React.useState('Judul Card Menggunakan React HOOK')
+
+        return (
+            <div className="card" style={{ width : "18rem" }}>
+                <div className="card-body">
+                    <h5 className="card-title">{state}</h5>
+                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#" className="btn btn-primary">Go Some Where</a>
+                    <ButtonA/>
+                </div>
+            </div>
+        )
+    }
+    
+    ReactDOM.render(<CardsA/>, document.getElementById('Container'));
+    ```
+    _Pada Function Component tidak bisa menggunakan constructor melainkan menggunakan state dari React Hook_
 
 ##
 ##
