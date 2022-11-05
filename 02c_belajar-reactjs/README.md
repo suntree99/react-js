@@ -10,10 +10,10 @@
 * Menggunakan NPM
 
 ## Konsep Dasar React JS 
-* Membuat DOM Container (di body HTML)
+* Membuat DOM Container (di body HTML) untuk menempatkan komponen
     ```html
-        <div id="Container">
-        </div>
+    <div id="Container">
+    </div>
     ```
 
 * Membuat Class Component (di file JS atau di tag script HTML)
@@ -29,16 +29,10 @@
 
 * Melakukan Render (di bawah Class Component pada script JS)
     ```js
-        ReactDOM.render(<Hello />, document.getElementById('Container'));    </script>
+    ReactDOM.render(<Hello />, document.getElementById('Container'));    </script>
     ```
 
 ## Memahami JSX
-* Membuat DOM Container (di body HTML)
-    ```html
-        <div id="App">
-        </div>
-    ```
-
 * Membuat Komponen Dengan React Murni (Tanpa JSX)
     ```html
     <script type="text/babel">
@@ -63,8 +57,9 @@
         ReactDOM.render(<Cards/>, document.getElementById('App'));
     </script>
     ```
+    _Perhartikan penggunaan {} pada bagian atribut_
 
-* Membuat Komponen JSX
+* Membuat Komponen Dengan JSX
     ```html
     <script type="text/babel">
         class ButtonJSX extends React.Component {
@@ -91,7 +86,7 @@
         ReactDOM.render(<CardsJSX/>, document.getElementById('App'));
     </script>
     ```
-    _Perbedaannya class diubah menjadi classNeme_
+    _Masukkan struktur HTML biasa dan ganti class menjadi classNeme_
 
 ## Component
 * Class Component
@@ -130,8 +125,31 @@
             </div>
         )
     }
+
+    const Navbar = () => {
+        return (
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </div>
+                    </div>
+                </div>
+            </nav>
+        )
+    }
+    
+    ReactDOM.render(<Navbar/>, document.getElementById('Container'));
     ```
-    _Pemberian style menggunakan {{}} dan "" pada value style_
+    _Perhatikan penggunaan style, dan pemanggilan komponen di dalam komponen_
 
 
 
