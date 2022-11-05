@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CDN React JS -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- CDN Bootstrap 5 -->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Components</title>
+</head>
+<body>
+
+    <div class="row">
+        <div class="col">
+
+            <div id="App"></div>
+
+        </div>
+    </div>
+    
+    <script type="text/babel">
+        // Membuat komponen dengan JSX
+
+        // 1. Class Component
+        class ButtonJSX extends React.Component {
+            render() {
+                return <button className="btn btn-primary">Button JSX</button>
+            }
+        }
+
+        class CardsJSX extends React.Component {
+            render() {
+                const card = (
+                    <div className="card">
+                        <div className="card-body">
+                            <h5 className="card-title">Hallo Aku adalah card dari JSX</h5>
+                            <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <a href="#" className="btn btn-primary">Go Some Where</a>
+                        </div>
+                    </div>
+                )
+                return card
+            }
+        }
+
+        // 1. Function Component
+        function Button() {
+            return <button className="btn btn-primary">Button Function</button>
+        }
+
+        // 1.1 Arrow Function Component
+        const ButtonA = () => {
+            return <button className="btn btn-primary">Button Arrow Fx</button>
+        }
+
+        const CardsA = () => {
+            return (
+                <div className="card" style={{ width : "18rem" }}>
+                    <div className="card-body">
+                        <h5 className="card-title">Hallo Aku adalah card dari Arrow Fx</h5>
+                        <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <a href="#" className="btn btn-primary">Go Some Where</a>
+                        <ButtonJSX/>
+                        <Button/>
+                        <ButtonA/>
+                    </div>
+                </div>
+            )
+        }
+        
+        const Navbar = () => {
+            return (
+                <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Navbar</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link" href="#">Features</a>
+                            <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        </div>
+                        </div>
+                    </div>
+                </nav>
+            )
+        }
+
+        
+        ReactDOM.render(<Navbar/>, document.getElementById('App'));
+    </script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>

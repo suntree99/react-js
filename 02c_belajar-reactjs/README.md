@@ -2,7 +2,7 @@
 
 ## Instalasi
 * Menggunakan CDN
-    * Kunjungi https://reactjs.org/ -> Docs -> Installation -> CDN Llnks
+    * Kunjungi https://reactjs.org/ -> Docs -> Installation -> CDN Links
     * Copy dan paste link (development atau production) ke file HTML di head section 
     * Masuk ke Installation -> Add React to a Website
     * Copy dan paste link babel (Quickly Try JSX) ke file HTML di head section
@@ -27,11 +27,9 @@
     </script>
     ```
 
-* Melakukan Render (di bawah Class Component)
-    ```html
-    <script type="text/babel">
-        ReactDOM.render(<Hello />, document.getElementById('Container'));
-    </script>
+* Melakukan Render (di bawah Class Component pada script JS)
+    ```js
+        ReactDOM.render(<Hello />, document.getElementById('Container'));    </script>
     ```
 
 ## Memahami JSX
@@ -71,18 +69,18 @@
     <script type="text/babel">
         class ButtonJSX extends React.Component {
             render() {
-                return <button className={"btn btn-primary"}>Primary Button</button>
+                return <button className="btn btn-primary">Primary Button</button>
             }
         }
 
         class CardsJSX extends React.Component {
             render() {
                 const card = (
-                    <div className={"card"}>
+                    <div className="card">
                         <div className="card-body">
-                            <h5 className={"card-title"}>Hallo Aku adalah card dari JSX</h5>
-                            <p className={"card-text"}>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            <a href={"#"} className={"btn btn-primary"}>Go Some Where</a>
+                            <h5 className="card-title">Hallo Aku adalah card dari JSX</h5>
+                            <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <a href="#" className="btn btn-primary">Go Some Where</a>
                         </div>
                     </div>
                 )
@@ -93,6 +91,49 @@
         ReactDOM.render(<CardsJSX/>, document.getElementById('App'));
     </script>
     ```
+    _Perbedaannya class diubah menjadi classNeme_
+
+## Component
+* Class Component
+    ```js
+    class ButtonJSX extends React.Component {
+        render() {
+            return <button className="btn btn-primary">Primary Button</button>
+        }
+    }
+    ```
+
+* Function Component
+    ```js
+    function Button() {
+        return <button className="btn btn-primary">Button Function</button>
+    }
+    ```
+
+    * Arrow Function Component
+    ```js
+    const ButtonA = () => {
+        return <button className="btn btn-primary">Button Arrow Fx</button>
+    }
+
+    const CardsA = () => {
+        return (
+            <div className="card" style={{ width : "18rem" }}>
+                <div className="card-body">
+                    <h5 className="card-title">Hallo Aku adalah card dari Arrow Fx</h5>
+                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#" className="btn btn-primary">Go Some Where</a>
+                    <ButtonJSX/>
+                    <Button/>
+                    <ButtonA/>
+                </div>
+            </div>
+        )
+    }
+    ```
+    _Pemberian style menggunakan {{}} dan "" pada value style_
+
+
 
 ##
 ##
