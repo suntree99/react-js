@@ -333,318 +333,317 @@
     ```
 
 # 4 Cara Menerapkan CSS pada React JS
-    ```js
-    import bgImage from '../assets/accent.png'
-    import profile from '../assets/profile.jpeg'
-    import image from '../assets/image.png'
+```js
+import bgImage from '../assets/accent.png'
+import profile from '../assets/profile.jpeg'
+import image from '../assets/image.png'
 
-    import '../css/style.css'
-    import Styling from '../css/CardProfile.module.css'
+import '../css/style.css'
+import Styling from '../css/CardProfile.module.css'
 
-    const CardProfile = () => {
+const CardProfile = () => {
 
-        // CSS Variable for Inline CSS
-        const Wrapper = { 
-            backgroundColor : '#00B6DF',
-            width : '100vw',
-            height : '100vh',
-            // backgroundImage : 'url(' + bgImage + ')', // Concatenation
-            backgroundImage : `url(${bgImage})`, // Template Literal
-            backgroundPosition : 'bottom right',
-            backgroundRepeat : 'no-repeat',
-            display : 'flex',
-            justifyContent : 'center',
-            alignItems : 'center'
-        }
-
-        return (
-            // 1. Inline CSS
-            <div style={
-                    //* Menggunakan Inline CSS
-                    // { 
-                    // backgroundColor : '#00B6DF',
-                    // width : '100vw',
-                    // height : '100vh',
-                    // backgroundImage : `url(${bgImage})`, // Template Literal
-                    // backgroundPosition : 'bottom right',
-                    // backgroundRepeat : 'no-repeat',
-                    // display : 'flex',
-                    // justifyContent : 'center',
-                    // alignItems : 'center'
-                    // }
-
-                    //* Menggunakan CSS Variable
-                    Wrapper
-            }>
-
-                {/* 2. CSS file - css/style.css */}
-                <div className='card'>
-                    <img className='photo' src={ profile } />
-                    <div className='title'>Front End Developer</div>
-                    <div className='name'>Budi Darmawan</div>
-                    <div className='desc'>Web designers generally have nothing to do with creating content for their projects. Even so, the look of a site can be incomplete if no words are included. Web designers need to find ways to</div>
-                    <button className='button'>Contact Me</button>
-                </div>
-
-                {/* 3. CSS Module - css/CardProfile.module.css */}
-                <div className='card'>
-                    <img src={ image } />
-                    <div className={Styling.title}>Back End Developer</div>
-                    <div className={Styling.name}>Iwan Setiawan</div>
-                    <div className={Styling.desc}>Web designers generally have nothing to do with creating content for their projects. Even so, the look of a site can be incomplete if no words are included. Web designers need to find ways to</div>
-                    <button className={Styling.button}>Contact Me</button>
-                </div>
-
-                {/* 4. CSS in JS */}
-            </div>
-        )
+    // CSS Variable for Inline CSS
+    const Wrapper = { 
+        backgroundColor : '#00B6DF',
+        width : '100vw',
+        height : '100vh',
+        // backgroundImage : 'url(' + bgImage + ')', // Concatenation
+        backgroundImage : `url(${bgImage})`, // Template Literal
+        backgroundPosition : 'bottom right',
+        backgroundRepeat : 'no-repeat',
+        display : 'flex',
+        justifyContent : 'center',
+        alignItems : 'center'
     }
 
-    export default CardProfile;
-    ```
+    return (
+        // 1. Inline CSS
+        <div style={
+                //* Menggunakan Inline CSS
+                // { 
+                // backgroundColor : '#00B6DF',
+                // width : '100vw',
+                // height : '100vh',
+                // backgroundImage : `url(${bgImage})`, // Template Literal
+                // backgroundPosition : 'bottom right',
+                // backgroundRepeat : 'no-repeat',
+                // display : 'flex',
+                // justifyContent : 'center',
+                // alignItems : 'center'
+                // }
+
+                //* Menggunakan CSS Variable
+                Wrapper
+        }>
+
+            {/* 2. CSS file - css/style.css */}
+            <div className='card'>
+                <img className='photo' src={ profile } />
+                <div className='title'>Front End Developer</div>
+                <div className='name'>Budi Darmawan</div>
+                <div className='desc'>Web designers generally have nothing to do with creating content for their projects. Even so, the look of a site can be incomplete if no words are included. Web designers need to find ways to</div>
+                <button className='button'>Contact Me</button>
+            </div>
+
+            {/* 3. CSS Module - css/CardProfile.module.css */}
+            <div className='card'>
+                <img src={ image } />
+                <div className={Styling.title}>Back End Developer</div>
+                <div className={Styling.name}>Iwan Setiawan</div>
+                <div className={Styling.desc}>Web designers generally have nothing to do with creating content for their projects. Even so, the look of a site can be incomplete if no words are included. Web designers need to find ways to</div>
+                <button className={Styling.button}>Contact Me</button>
+            </div>
+
+            {/* 4. CSS in JS */}
+        </div>
+    )
+}
+
+export default CardProfile;
+```
 
 # List & Key (Data Looping)
-    ```js
-    class List extends React.Component {
+```js
+class List extends React.Component {
 
-        // Higher Order Function
-        render() {
-            // Map
-            const fruits = ['mangga', 'aple', 'delima', 'nanas'];
-            const fruit = fruits.map((f, index) => <li key={index}>{f}</li>);
+    // Higher Order Function
+    render() {
+        // Map
+        const fruits = ['mangga', 'aple', 'delima', 'nanas'];
+        const fruit = fruits.map((f, index) => <li key={index}>{f}</li>);
 
-            // Filter
-            const numbers = [1, 3, 5, 9, 2, 10];
-            const number = numbers.filter((n) => n < 6);
-            const num = number.map((n) => <li key={n.toString()}>{n}</li>);
-            // Reduce
-            const total = numbers.reduce((value, acc) => value + acc);
-
-            return (
-                <div>
-                    <h1>Hallo</h1>
-                    <ul>
-                        {fruit}
-                    </ul>
-                    <ul>
-                        {num}
-                    </ul>
-                    <p>Total = {total}</p>
-                </div>
-            )
-        }
-    }
-    ```
-
-# Oject & State
-* Deklarasi Object
-    ```js
-    import {useState} from "react";
-
-    const Object = () => {
-
-        //! Deklarasi Object
-        // const motor = {
-            // Property
-        //     merek : "Honda",
-        //     jenis : "ADV 160",
-        //     warna : "Merah",
-        //     bensin : "Bensin",
-        //     harga : 30000000,
-        //     plat : "D3452VDQ",
-        //     status : "OFF",
-
-            // Method
-        //     menyalakan : () => {
-        //         console.log('nyalakan mesin');
-        //     }
-        // }
-
-        //! State
-        let [mtr, setMtr] = useState(
-            {
-                // Property
-                merek : "Honda",
-                jenis : "ADV 160",
-                warna : "Merah",
-                bensin : 20,
-                harga : 30000000,
-                plat : "D3452VDQ",
-                status : "OFF",
-        
-                // Method
-                menyalakan : () => {
-                    console.log('menyalakan mesin');
-                    setMtr( data => {
-                        return {
-                            ...data,
-                            status : "ON",
-                            bensin : data.bensin - 5
-                        }
-                    } )
-                },
-
-                mematikan : () => {
-                    console.log('mematikan mesin');
-                    setMtr( data => {
-                        return {
-                            ...data,
-                            status : "OFF",
-                        }
-                    } )
-                },
-
-                isiBensin : () => {
-                    console.log('isi bensin');
-                    setMtr( data => {
-                        return {
-                            ...data,
-                            bensin : data.bensin + 20
-                        }
-                    }
-                    )
-                }
-            }
-        )
+        // Filter
+        const numbers = [1, 3, 5, 9, 2, 10];
+        const number = numbers.filter((n) => n < 6);
+        const num = number.map((n) => <li key={n.toString()}>{n}</li>);
+        // Reduce
+        const total = numbers.reduce((value, acc) => value + acc);
 
         return (
             <div>
+                <h1>Hallo</h1>
                 <ul>
-                    <li>Merek : {mtr.merek}</li>
-                    <li>Jenis : {mtr.jenis}</li>
-                    <li>Warna : {mtr.warna}</li>
-                    <li>Bensin : {mtr.bensin} L</li>
-                    <li>Harga : {mtr.harga}</li>
-                    <li>Plat Nomor: {mtr.plat}</li>
-                    <li>Status : {mtr.status}</li>
+                    {fruit}
                 </ul>
-                <button onClick={ () => mtr.menyalakan() }>Nyalakan Mesin</button>
-                <button onClick={ mtr.mematikan }>Matikan Mesin</button>
-                <button onClick={ mtr.isiBensin }>Isi Bensin</button>
+                <ul>
+                    {num}
+                </ul>
+                <p>Total = {total}</p>
             </div>
         )
     }
+}
+```
 
-    export default Object;
-    ```
+# Oject & State
+```js
+import {useState} from "react";
 
-# Event Handling
-    ```js
-    import React from 'react'
+const Object = () => {
 
-    class EventReact extends React.Component {
+    //! Deklarasi Object
+    // const motor = {
+        // Property
+    //     merek : "Honda",
+    //     jenis : "ADV 160",
+    //     warna : "Merah",
+    //     bensin : "Bensin",
+    //     harga : 30000000,
+    //     plat : "D3452VDQ",
+    //     status : "OFF",
 
-        // Constructor
-        constructor() {
-            super();
-            this.state = {
-                nama : 'Budi'
+        // Method
+    //     menyalakan : () => {
+    //         console.log('nyalakan mesin');
+    //     }
+    // }
+
+    //! State
+    let [mtr, setMtr] = useState(
+        {
+            // Property
+            merek : "Honda",
+            jenis : "ADV 160",
+            warna : "Merah",
+            bensin : 20,
+            harga : 30000000,
+            plat : "D3452VDQ",
+            status : "OFF",
+    
+            // Method
+            menyalakan : () => {
+                console.log('menyalakan mesin');
+                setMtr( data => {
+                    return {
+                        ...data,
+                        status : "ON",
+                        bensin : data.bensin - 5
+                    }
+                } )
+            },
+
+            mematikan : () => {
+                console.log('mematikan mesin');
+                setMtr( data => {
+                    return {
+                        ...data,
+                        status : "OFF",
+                    }
+                } )
+            },
+
+            isiBensin : () => {
+                console.log('isi bensin');
+                setMtr( data => {
+                    return {
+                        ...data,
+                        bensin : data.bensin + 20
+                    }
+                }
+                )
             }
         }
+    )
 
-        // Data/Method
-        kirimPesan(nama) {
-            console.log('Kirim pesan kepada ' + nama)
-        }
+    return (
+        <div>
+            <ul>
+                <li>Merek : {mtr.merek}</li>
+                <li>Jenis : {mtr.jenis}</li>
+                <li>Warna : {mtr.warna}</li>
+                <li>Bensin : {mtr.bensin} L</li>
+                <li>Harga : {mtr.harga}</li>
+                <li>Plat Nomor: {mtr.plat}</li>
+                <li>Status : {mtr.status}</li>
+            </ul>
+            <button onClick={ () => mtr.menyalakan() }>Nyalakan Mesin</button>
+            <button onClick={ mtr.mematikan }>Matikan Mesin</button>
+            <button onClick={ mtr.isiBensin }>Isi Bensin</button>
+        </div>
+    )
+}
 
-        ubahTulisan(e) {
-            e.target.innerHTML = 'Leave Me / Click';
-        }
+export default Object;
+```
 
-        ubahTulisanLagi(e) {
-            e.target.innerHTML = 'Hover Me';
-        }
+# Event Handling
+```js
+import React from 'react'
 
-        sapa(e) {
-            this.setState({nama: e.target.value})
-        }
+class EventReact extends React.Component {
 
-        // Render
-        render() {
-            return (
-                <div>
-                    {/* Pemanggilan Event menggunakan arrow fuction*/}
-                    <button onClick={ () => alert('Hello World')}>Hello World</button>
-                    <button onClick={ () => this.kirimPesan('Budi')}>Pesan Arrow</button>
-                    
-                    {/* Pemanggilan Event menggunakan .bind*/}
-                    <button onClick={ this.kirimPesan.bind(this, 'Budi')}>Pesan Bind</button>
-
-                    {/* Pemanggilan Event menggunakan parameter event*/}
-                    <button onClick={ (e) => this.kirimPesan('Budi', e)}>Pesan e Param</button>
-
-                    {/* Pemanggilan Event onMouse*/}
-                    <button onMouseEnter={ (e) => this.ubahTulisan(e)} onMouseLeave={ (e) => this.ubahTulisanLagi(e)} onClick={() => alert('Kirim pesan kepada Budi') }>Hover Me</button>
-
-                    {/* Pemanggilan Event onChange*/}
-                    <h2>Hello : {this.state.nama}</h2>
-                    <input type={"text"} onChange={this.sapa.bind(this)}/>
-
-                </div>
-            )
+    // Constructor
+    constructor() {
+        super();
+        this.state = {
+            nama : 'Budi'
         }
     }
 
-    export default EventReact;
-    ```
+    // Data/Method
+    kirimPesan(nama) {
+        console.log('Kirim pesan kepada ' + nama)
+    }
 
-# React API
-    ```js
-    import { useEffect, useState } from 'react'
-    import Button from 'react-bootstrap/Button';
-    import Card from 'react-bootstrap/Card';
+    ubahTulisan(e) {
+        e.target.innerHTML = 'Leave Me / Click';
+    }
 
-    const Products = () => {
+    ubahTulisanLagi(e) {
+        e.target.innerHTML = 'Hover Me';
+    }
 
-        const url = 'https://fakestoreapi.com/products';
-        const [products, setProducts] = useState([]);
+    sapa(e) {
+        this.setState({nama: e.target.value})
+    }
 
-        const getDataProducts = async () => {
-            const response = await fetch(url);
-            const dataProduct = await response.json();
-            setProducts(dataProduct);
-        }
-
-        useEffect(() => {
-            getDataProducts();
-        })
-
+    // Render
+    render() {
         return (
-            <div className="container">
-                <div className="row">
-                    <h1>My Products</h1>
-                    { products.map( (product) => 
-                        <div className="col-3 mb-3">
-                            <CardProduct 
-                            key={product.id} 
-                            title={product.title} 
-                            price={product.price} 
-                            category={product.category} 
-                            description={product.description} 
-                            image={product.image}/>
-                        </div> 
-                    ) }
-                </div>
+            <div>
+                {/* Pemanggilan Event menggunakan arrow fuction*/}
+                <button onClick={ () => alert('Hello World')}>Hello World</button>
+                <button onClick={ () => this.kirimPesan('Budi')}>Pesan Arrow</button>
+                
+                {/* Pemanggilan Event menggunakan .bind*/}
+                <button onClick={ this.kirimPesan.bind(this, 'Budi')}>Pesan Bind</button>
+
+                {/* Pemanggilan Event menggunakan parameter event*/}
+                <button onClick={ (e) => this.kirimPesan('Budi', e)}>Pesan e Param</button>
+
+                {/* Pemanggilan Event onMouse*/}
+                <button onMouseEnter={ (e) => this.ubahTulisan(e)} onMouseLeave={ (e) => this.ubahTulisanLagi(e)} onClick={() => alert('Kirim pesan kepada Budi') }>Hover Me</button>
+
+                {/* Pemanggilan Event onChange*/}
+                <h2>Hello : {this.state.nama}</h2>
+                <input type={"text"} onChange={this.sapa.bind(this)}/>
+
             </div>
         )
     }
+}
 
-    function CardProduct(props) {
-        return (
-            <Card style={{ width: '18rem', height: '100%' }}>
-                <Card.Img variant="top" src={props.image} />
-                <Card.Body>
-                    <Card.Title>{props.title}</Card.Title>
-                    <Card.Text>{props.description}</Card.Text>
-                    <p>Price : {props.price}</p>
-                    <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-            </Card>
-        );
+export default EventReact;
+```
+
+# React API
+```js
+import { useEffect, useState } from 'react'
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+
+const Products = () => {
+
+    const url = 'https://fakestoreapi.com/products';
+    const [products, setProducts] = useState([]);
+
+    const getDataProducts = async () => {
+        const response = await fetch(url);
+        const dataProduct = await response.json();
+        setProducts(dataProduct);
     }
 
-    export default Products;
-    ```
+    useEffect(() => {
+        getDataProducts();
+    })
+
+    return (
+        <div className="container">
+            <div className="row">
+                <h1>My Products</h1>
+                { products.map( (product) => 
+                    <div className="col-3 mb-3">
+                        <CardProduct 
+                        key={product.id} 
+                        title={product.title} 
+                        price={product.price} 
+                        category={product.category} 
+                        description={product.description} 
+                        image={product.image}/>
+                    </div> 
+                ) }
+            </div>
+        </div>
+    )
+}
+
+function CardProduct(props) {
+    return (
+        <Card style={{ width: '18rem', height: '100%' }}>
+            <Card.Img variant="top" src={props.image} />
+            <Card.Body>
+                <Card.Title>{props.title}</Card.Title>
+                <Card.Text>{props.description}</Card.Text>
+                <p>Price : {props.price}</p>
+                <Button variant="primary">Go somewhere</Button>
+            </Card.Body>
+        </Card>
+    );
+}
+
+export default Products;
+```
 
 ##
 ##
