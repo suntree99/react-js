@@ -8,6 +8,10 @@
     * Copy dan paste link babel (Quickly Try JSX) ke file HTML di head section
 
 * Menggunakan NPM
+    * Install NodeJS https://nodejs.org/en/download/ jika belum
+    * Masuk ke terminal dan jalankan perintah `npm install -g create-react-app`
+    * Buat folder project dan masuk pada direktori tersebut
+    * Jalankan perintah `create-react-app judul-project`
 
 ## Konsep Dasar React JS 
 * Membuat DOM Container (di body HTML) untuk menempatkan komponen
@@ -237,6 +241,11 @@
     ReactDOM.render(<CardsA/>, document.getElementById('Container'));
     ```
     _Pada Function Component tidak bisa menggunakan constructor melainkan menggunakan state dari React Hook_
+
+## Instalasi React Bootstrap
+* Kunjungi https://react-bootstrap.github.io/ -> Get Started
+* Masuk ke terminal dan jalankan perintah `npm install react-bootstrap bootstrap`
+* Tambahkan `import 'bootstrap/dist/css/bootstrap.min.css';` ke index.js
 
 ##
 ##
