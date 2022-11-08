@@ -1,9 +1,9 @@
-import bgImage from './../assets/accent.png'
-import profile from './../assets/profile.jpeg'
-import image from './../assets/image.png'
+import bgImage from '../assets/accent.png'
+import profile from '../assets/profile.jpeg'
+import image from '../assets/image.png'
 
-import './../css/style.css'
-import Styling from './../css/CardProfile.module.css'
+import '../css/style.css'
+import Styling from '../css/CardProfile.module.css'
 
 const CardProfile = () => {
 
@@ -29,7 +29,6 @@ const CardProfile = () => {
                 // backgroundColor : '#00B6DF',
                 // width : '100vw',
                 // height : '100vh',
-                // // backgroundImage : 'url(' + bgImage + ')', // Concatenation
                 // backgroundImage : `url(${bgImage})`, // Template Literal
                 // backgroundPosition : 'bottom right',
                 // backgroundRepeat : 'no-repeat',
@@ -40,8 +39,8 @@ const CardProfile = () => {
 
                 //* Menggunakan CSS Variable
                 Wrapper
-            }
-        >
+        }>
+            
             {/* 2. CSS file */}
             <div className='card'>
                 <img className='photo' src={ profile } />

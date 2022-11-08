@@ -9,7 +9,7 @@ const Navigation = () => {
     return (
         <Navbar bg="dark" variant='dark' expand="lg">
         <Container>
-            <Navbar.Brand href="#">SMK Nusantara Indonesia</Navbar.Brand>
+            <Navbar.Brand href="#">SMAN 1 Nusantara</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
             <Nav

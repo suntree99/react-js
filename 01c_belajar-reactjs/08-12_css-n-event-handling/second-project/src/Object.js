@@ -2,6 +2,24 @@ import {useState} from "react";
 
 const Object = () => {
 
+    //! Deklarasi Object
+    // const motor = {
+        // Property
+    //     merek : "Honda",
+    //     jenis : "ADV 160",
+    //     warna : "Merah",
+    //     bensin : "Bensin",
+    //     harga : 30000000,
+    //     plat : "D3452VDQ",
+    //     status : "OFF",
+
+        // Method
+    //     menyalakan : () => {
+    //         console.log('nyalakan mesin');
+    //     }
+    // }
+
+    //! State
     let [mtr, setMtr] = useState(
         {
             // Property
@@ -47,22 +65,6 @@ const Object = () => {
             }
         }
     )
-
-    // const motor = {
-    //     // Property
-    //     merek : "Honda",
-    //     jenis : "ADV 160",
-    //     warna : "Merah",
-    //     bensin : "Bensin",
-    //     harga : 30000000,
-    //     plat : "D3452VDQ",
-    //     status : "OFF",
-
-    //     // Method
-    //     menyalakan : () => {
-    //         console.log('nyalakan mesin');
-    //     }
-    // }
 
     return (
         <div>
